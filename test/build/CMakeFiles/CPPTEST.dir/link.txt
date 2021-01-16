@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/CPPTEST.dir/main.cc.o CMakeFiles/CPPTEST.dir/SoundexTest.cc.o  -o CPPTEST  -lgtest -lgtest_main -lgmock -lpthread 

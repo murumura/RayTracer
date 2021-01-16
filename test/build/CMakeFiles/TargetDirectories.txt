@@ -1,0 +1,3 @@
+/home/RayTracer/test/build/CMakeFiles/rebuild_cache.dir
+/home/RayTracer/test/build/CMakeFiles/edit_cache.dir
+/home/RayTracer/test/build/CMakeFiles/CPPTEST.dir
