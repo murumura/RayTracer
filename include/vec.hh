@@ -48,9 +48,9 @@ class Vector final : private tuple_constants, colour_constants {
 		return contents[index];
 	}
 	/** For economically, implement + in terms of +=  */
-	constexpr Vector& operator+=(const Vector &rhs) const noexcept
+	constexpr Vector &operator+=(const Vector &rhs) const noexcept
 	{
-        contents += rhs.contents;
+		contents += rhs.contents;
 		return *this;
 	}
 	constexpr Vector operator+(const Vector &other) const noexcept
@@ -59,9 +59,9 @@ class Vector final : private tuple_constants, colour_constants {
 		copy += other;
 		return copy;
 	}
-    constexpr Vector& operator-=(const Vector &rhs) const noexcept
+	constexpr Vector &operator-=(const Vector &rhs) const noexcept
 	{
-        contents -= rhs.contents;
+		contents -= rhs.contents;
 		return *this;
 	}
 	constexpr Vector operator-(const Vector &other) const noexcept
