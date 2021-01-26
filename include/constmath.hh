@@ -3,8 +3,8 @@
 #include <cmath>
 #include <numeric>
 namespace RayTracer {
-namespace MathConst {
+    namespace MathConst {
 
-};
-};  // namespace RayTracer
+    };
+}; // namespace RayTracer
 #endif

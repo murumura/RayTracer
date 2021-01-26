@@ -11,7 +11,6 @@ public:
    }
 
 private:
-   // ...
    std::string head(const std::string& word) const {
       return word.substr(0, 1);
    }
@@ -21,8 +20,12 @@ private:
    }
 
    std::string encodedDigits(const std::string& word) const {
-      if (word.empty()) return "";
-      return encodedDigit(word.front());
+      std::string encoding;
+      for (auto letter: word) {
+         if (isComplete(encoding)) break;
+         encoding += encodedDigit(letter);
+      }
+      return encoding;
    }
 
    std::string encodedDigit(char letter) const {
@@ -39,7 +42,9 @@ private:
       auto it = encodings.find(letter);
       return it == encodings.end() ? "" : it->second;
    }
-
+   bool isComplete (const std::string& encoding) const {
+      return encoding.length() == MaxCodeLength - 1; 
+   }
    std::string zeroPad(const std::string& word) const {
       auto zerosNeeded = MaxCodeLength - word.length();
       return word + std::string(zerosNeeded, '0');
@@ -66,6 +71,10 @@ TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
   ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
 }
 
-TEST_F(SoundexEncoding, DISABLED_ReplacesMultipleConsonantsWithDigits) {
+TEST_F(SoundexEncoding, ReplacesMultipleConsonantsWithDigits) {
    ASSERT_THAT(soundex.encode("Acdl"), Eq("A234"));
+}
+
+TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
+   ASSERT_THAT(soundex.encode("Dcdlb").length(), Eq(4u)); 
 }

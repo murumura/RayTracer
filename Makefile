@@ -7,5 +7,5 @@ SRC      := $(wildcard $(SRCDIR)/*.cc)
 format:
 	clang-format \
 	-style=\
-	"{BasedOnStyle: Google,BreakBeforeBraces: Stroustrup, IndentWidth: 4, IndentCaseLabels: false, TabWidth: 4, UseTab: ForIndentation, ColumnLimit: 0}"\
+	"{BasedOnStyle: LLVM,BreakBeforeBraces: Stroustrup, IndentWidth: 4, IndentCaseLabels: false, TabWidth: 4, UseTab: ForIndentation, ColumnLimit: 0}"\
 	 -i $(SRC) $(INCLUDE_FILE) 
