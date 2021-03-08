@@ -50,8 +50,12 @@ class Vector final : private tuple_constants, private colour_constants {
 	~Vector() = default;
 	constexpr Vector &operator=(const Vector &other) = default;
 	constexpr Vector &operator=(Vector &&other) noexcept = default;
-	constexpr const T operator[](size_t index) const noexcept;
-	constexpr Vector operator+(const Vector &other) const noexcept;
+	constexpr const T operator[](size_t index) const noexcept{
+		return contents[index];
+	}
+	constexpr Vector operator+(const Vector &other) const noexcept{
+		return Vector {contents + other.contents};
+	}
 	constexpr Vector operator+(const Type scalar) const noexcept;
 	constexpr Vector operator-(const Vector &other) const noexcept;
 	constexpr Vector operator-(const Type scalar) const noexcept;

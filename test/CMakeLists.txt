@@ -12,6 +12,7 @@ find_package(PkgConfig REQUIRED)
 set(project_sources
 main.cc
 Test_common.cc
+Test_transform.cc
 )
 set(project_headers
 ../../include/vec.hh 
